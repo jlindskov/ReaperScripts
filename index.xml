@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="JL_ReaperScripts" commit="1e2d60fea91a578cb17c39feee8d39b388e47c3b">
+<index version="1" name="JL_ReaperScripts" commit="5656ad9a99ede2e056e8af2cbd8a12ede2cbc13b">
   <category name="ReaGames">
     <reapack name="JL_ReaBird.lua" type="script" desc="ReaBird">
       <metadata>
@@ -29,6 +29,9 @@
       </metadata>
       <version name="1.0.0" author="Jeppe Emil Lindskov" time="2021-04-09T17:56:42Z">
         <source main="main">https://github.com/jlindskov/ReaperScripts/raw/129533a68645a377458a9f573cbe76943ba8cf5b/ReaGames/JL_ReaSnek.lua</source>
+      </version>
+      <version name="1.0.1" author="Jeppe Emil Lindskov" time="2021-04-09T18:17:32Z">
+        <source main="main">https://github.com/jlindskov/ReaperScripts/raw/5656ad9a99ede2e056e8af2cbd8a12ede2cbc13b/ReaGames/JL_ReaSnek.lua</source>
       </version>
     </reapack>
     <reapack name="JL_ReaSweeper.lua" type="script" desc="ReaSweeper">
