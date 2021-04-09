@@ -1,9 +1,10 @@
 -- @description ReaSweeper
--- @version 1.0.0
+-- @version 1.0.1
 -- @author Jeppe Emil Lindskov
 -- @about
 --   # ReaSweeper
 --   MineSweeper now available in Reaper
+
 
 -- GLOBAL Variables ------------------------------
 
@@ -450,10 +451,9 @@ function Init()
   numberOfMines = tonumber(numberOfMines)
   flaggedMines = numberOfMines
   CreateGrid()
-  screen = gfx.init("ReaBird" ,BoardSizeX, BoardSizeY, 0,1000,500)
+  screen = gfx.init("ReaSweeper" ,BoardSizeX, BoardSizeY, 0,1000,500)
   ResetTimer()
   MainLoop()
-  
   end
 end
 
