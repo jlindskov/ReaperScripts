@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Reaper Scripts" commit="129533a68645a377458a9f573cbe76943ba8cf5b">
+<index version="1" name="JL_ReaperScripts" commit="129533a68645a377458a9f573cbe76943ba8cf5b">
   <category name="ReaGames">
     <reapack name="JL_ReaSnek.lua" type="script" desc="ReaSnek">
       <metadata>
