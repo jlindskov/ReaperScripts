@@ -10,7 +10,7 @@
 
 BoardSizeX = 1000
 BoardSizeY = 1000
-PlayerSpeed = 20
+PlayerSpeed = 16
 prevInputValue = 1
 prevInputDir = "X"
 currentDir = 0
