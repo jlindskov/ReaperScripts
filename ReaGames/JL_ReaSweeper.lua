@@ -1,5 +1,5 @@
 -- @description ReaSweeper
--- @version 1.0.1
+-- @version 1.0.2
 -- @author Jeppe Emil Lindskov
 -- @about
 --   # ReaSweeper
