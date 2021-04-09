@@ -1,2 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<index version="1" name="Reaper Scripts"/>
+<index version="1" name="Reaper Scripts" commit="129533a68645a377458a9f573cbe76943ba8cf5b">
+  <category name="ReaGames">
+    <reapack name="JL_ReaSnek.lua" type="script" desc="ReaSnek">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 ReaSnek\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 Classic Snake, now available in Reaper!\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0.0" author="Jeppe Emil Lindskov" time="2021-04-09T17:56:42Z">
+        <source main="main">https://github.com/jlindskov/ReaperScripts/raw/129533a68645a377458a9f573cbe76943ba8cf5b/ReaGames/JL_ReaSnek.lua</source>
+      </version>
+    </reapack>
+    <reapack name="JL_ReaSweeper.lua" type="script" desc="ReaSweeper">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 ReaSweeper\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 MineSweeper now available in Reaper\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0.0" author="Jeppe Emil Lindskov" time="2021-04-09T17:56:42Z">
+        <source main="main">https://github.com/jlindskov/ReaperScripts/raw/129533a68645a377458a9f573cbe76943ba8cf5b/ReaGames/JL_ReaSweeper.lua</source>
+      </version>
+    </reapack>
+    <reapack name="JL_TictacToe.lua" type="script" desc="TicTacToe">
+      <metadata>
+        <description><![CDATA[{\rtf1\ansi\deff0{\fonttbl{\f0 \fswiss Helvetica;}{\f1 Courier;}}
+{\colortbl;\red255\green0\blue0;\red0\green0\blue255;}
+\widowctrl\hyphauto
+
+{\pard \ql \f0 \sa180 \li0 \fi0 \b \fs36 TicTacToe\par}
+{\pard \ql \f0 \sa180 \li0 \fi0 TicTacToe made using reapers tracks and items\par}
+}
+]]></description>
+      </metadata>
+      <version name="1.0.0" author="Jeppe Emil Lindskov" time="2021-04-09T17:56:42Z">
+        <source main="main">https://github.com/jlindskov/ReaperScripts/raw/129533a68645a377458a9f573cbe76943ba8cf5b/ReaGames/JL_TictacToe.lua</source>
+      </version>
+    </reapack>
+  </category>
+</index>
