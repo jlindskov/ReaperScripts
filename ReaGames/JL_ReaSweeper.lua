@@ -443,7 +443,7 @@ end
 
 function Init()
 
-  retval,retvalCSV  = reaper.GetUserInputs("Welcome To ReaSweeper", 3, "Grid Width:,Grid Height:,Mines:", "10,15,20")
+  retval,retvalCSV  = reaper.GetUserInputs("Welcome To ReaSweeper", 3, "Grid Width:,Grid Height:,Mines:", "10,15,15")
   if retval ~= false then
   gridWidth, gridHeight, numberOfMines = string.match(retvalCSV, "([^,]+),([^,]+),([^,]+)")
   gridWidth = tonumber(gridWidth)
