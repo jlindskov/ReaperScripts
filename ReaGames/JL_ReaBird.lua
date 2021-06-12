@@ -1,5 +1,5 @@
 -- @description ReaBird
--- @version 1.0.1
+-- @version 1.0.2
 -- @author Jeppe Emil Lindskov
 -- @about
 --   # Reabird
@@ -292,7 +292,7 @@ function Update()
      return 
    end 
    
-   Player.y = Player.y + PlayerSpeed * -1
+   Player.y = Player.y + PlayerSpeed * -.6
 
    PlayerSpeed = PlayerSpeed - 3 
    
@@ -330,7 +330,10 @@ function MainLoop()
 end
 
 function Init()
-  screen = gfx.init("ReaBird" ,BoardSizeX, BoardSizeY, 0,1000,500) 
+  Viewport={reaper.my_getViewport(0,0,0,0,0,0,0,0,false)}
+  Viewport[3]=(Viewport[3]-BoardSizeX)/2
+  Viewport[4]=(Viewport[4]-BoardSizeY)/2
+  screen = gfx.init("ReaBird" ,BoardSizeX, BoardSizeY, 0,Viewport[3], Viewport[4]) 
   Player.dead = true
   GameStarted = true 
 end

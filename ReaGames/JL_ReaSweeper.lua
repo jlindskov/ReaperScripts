@@ -1,5 +1,5 @@
 -- @description ReaSweeper
--- @version 1.0.2
+-- @version 1.0.3
 -- @author Jeppe Emil Lindskov
 -- @about
 --   # ReaSweeper
@@ -451,7 +451,10 @@ function Init()
   numberOfMines = tonumber(numberOfMines)
   flaggedMines = numberOfMines
   CreateGrid()
-  screen = gfx.init("ReaSweeper" ,BoardSizeX, BoardSizeY, 0,1000,500)
+  Viewport={reaper.my_getViewport(0,0,0,0,0,0,0,0,false)}
+  Viewport[3]=(Viewport[3]-BoardSizeX)/2
+  Viewport[4]=(Viewport[4]-BoardSizeY)/2
+  screen = gfx.init("ReaSweeper" ,BoardSizeX, BoardSizeY, 0,Viewport[3],Viewport[4])
   ResetTimer()
   MainLoop()
   end
