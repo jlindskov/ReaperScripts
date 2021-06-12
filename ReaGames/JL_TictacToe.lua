@@ -424,16 +424,11 @@ end
 --------------------------------------
 reaper.ClearConsole()
 --[[
-local retval2, extstate=reaper.GetProjExtState(0, "JL", "TicTacToe")
-if extstate=="" then
-  reaper.Main_OnCommand(40859, 0)
-  reaper.SetProjExtState(0, "JL", "TicTacToe", "exists")
-end
---wannaPlay = reaper.ShowMessageBox("Do you want to play?\nWARNING: This will clear your current session, so save your work or make empty project!", "Welcome To Tic Tac Toe", 4)
+wannaPlay = reaper.ShowMessageBox("Do you want to play?\nWARNING: This will clear your current session, so save your work or make empty project!", "Welcome To Tic Tac Toe", 4)
 
---if wannaPlay ~= 6 then
---return
---end
+if wannaPlay ~= 6 then
+return
+end
 --]]
 CheckForCorrectProjectTab()
 
