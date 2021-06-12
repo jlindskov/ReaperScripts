@@ -236,12 +236,12 @@ function DrawMenu()
   gfx.g = 1
   
   gfx.x = 65
-  gfx.y = 600
+  gfx.y = gfx.h-200
   gfx.drawstr("Press space to play")
   
   gfx.setfont(1,"Arial", 25)
   gfx.x = 125
-  gfx.y = 950
+  gfx.y = gfx.h-100
   gfx.drawstr("Tap Space To Move Up")
 
 end
