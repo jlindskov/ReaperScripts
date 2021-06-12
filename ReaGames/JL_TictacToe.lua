@@ -1,5 +1,5 @@
 -- @description TicTacToe
--- @version 1.0.1
+-- @version 1.0.0
 -- @author Jeppe Emil Lindskov
 -- @about
 --   # TicTacToe
@@ -78,14 +78,6 @@ function CreateBoard()
     mediaStart = 0
     mediaEnd = 5
     end
-  
-  local count=1
-  for i=reaper.CountTracks(0)-1, 0, -1 do
-    track = reaper.GetTrack(0, i)
-    reaper.GetSetMediaTrackInfo_String(track, "P_NAME", "Field: "..count.." "..(count+1).." "..(count+2), true)
-    count=count+3
-  end
-
   return board
 end
 
@@ -149,7 +141,7 @@ while(playermove ~= 1 and playermove ~= 2 and playermove ~= 3  and playermove ~=
   retval, playermove = reaper.GetUserInputs("X or O", 1, "Select Number 1 - 9, cancel to forfeit","")
   playermove = tonumber(playermove)
   if retval == false then
-    EndGame()
+    break
   end
 end
 
@@ -389,15 +381,10 @@ end
 --------------------------------------
 reaper.ClearConsole()
 
-if reaper.GetProjExtState(0, "JL", "TicTacToe")=="" then
-  reaper.Main_OnCommand(40859, 0)
-  reaper.SetProjExtState(0, "JL", "TicTacToe", "exists")
+wannaPlay = reaper.ShowMessageBox("Do you want to play?\nWARNING: This will clear your current session, so save your work or make empty project!", "Welcome To Tic Tac Toe", 4)
+if wannaPlay ~= 6 then
+return
 end
---wannaPlay = reaper.ShowMessageBox("Do you want to play?\nWARNING: This will clear your current session, so save your work or make empty project!", "Welcome To Tic Tac Toe", 4)
-
---if wannaPlay ~= 6 then
---return
---end
 
 name = ChooseLetter()
 
@@ -411,9 +398,6 @@ turn = WhoGoesFirst()
 Zoom()
 
 reaper.ShowMessageBox(turn.." Starts!","", 0)
-
-function EndGame()
-end
 
 Main()
 
