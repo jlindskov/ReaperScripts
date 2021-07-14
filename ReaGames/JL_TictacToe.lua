@@ -1,5 +1,5 @@
 -- @description TicTacToe
--- @version 1.0.0
+-- @version 1.0.1
 -- @author Jeppe Emil Lindskov
 -- @about
 --   # TicTacToe
@@ -20,7 +20,7 @@ end
 
 ----------------------------------------------------------------------------------------
 function ChooseLetter()
-
+CheckForCorrectProjectTab()
 while(_name ~= "X" and _name ~= "O")
   do
  retval, _name = reaper.GetUserInputs("X or O", 1, "Do you want to be X or O?", "")
@@ -36,6 +36,40 @@ while(_name ~= "X" and _name ~= "O")
     end
 end
   return _name
+end
+
+----------------------------------------------------------------------------------------
+
+function CheckForCorrectProjectTab()
+  local retval2, extstate=reaper.GetProjExtState(0, "JL", "TicTacToe")
+  if extstate~="" then
+    return
+  end
+
+  proj=reaper.EnumProjects(0)
+  for i=0, 1000 do
+    reaper.Main_OnCommand(40861, 0)
+    proj2=reaper.EnumProjects(-1)
+    if proj==proj2 then break end
+  end
+  
+  local found=false
+  for i=0, 1000 do
+    proj2=reaper.EnumProjects(i)
+    if proj2==nil then break end
+    local retval2, extstate=reaper.GetProjExtState(0, "JL", "TicTacToe")
+    if extstate=="" then
+      reaper.Main_OnCommand(40861, 0)
+    else
+      found=true
+      break
+    end
+  end
+  
+  if found==false then 
+    reaper.Main_OnCommand(40859, 0)
+    reaper.SetProjExtState(0, "JL", "TicTacToe", "exists")
+  end
 end
 
 ----------------------------------------------------------------------------------------
@@ -78,6 +112,14 @@ function CreateBoard()
     mediaStart = 0
     mediaEnd = 5
     end
+  
+  local count=1
+  for i=reaper.CountTracks(0)-1, 0, -1 do
+    track = reaper.GetTrack(0, i)
+    reaper.GetSetMediaTrackInfo_String(track, "P_NAME", "Field: "..count.." "..(count+1).." "..(count+2), true)
+    count=count+3
+  end
+
   return board
 end
 
@@ -139,9 +181,10 @@ playermove = ""
 while(playermove ~= 1 and playermove ~= 2 and playermove ~= 3  and playermove ~= 4  and playermove ~= 5  and playermove ~= 6  and playermove ~= 7  and playermove ~= 8  and playermove ~= 9)
   do
   retval, playermove = reaper.GetUserInputs("X or O", 1, "Select Number 1 - 9, cancel to forfeit","")
+  CheckForCorrectProjectTab()
   playermove = tonumber(playermove)
   if retval == false then
-    break
+    EndGame()
   end
 end
 
@@ -380,11 +423,14 @@ end
 
 --------------------------------------
 reaper.ClearConsole()
-
+--[[
 wannaPlay = reaper.ShowMessageBox("Do you want to play?\nWARNING: This will clear your current session, so save your work or make empty project!", "Welcome To Tic Tac Toe", 4)
+
 if wannaPlay ~= 6 then
 return
 end
+--]]
+CheckForCorrectProjectTab()
 
 name = ChooseLetter()
 
@@ -399,15 +445,15 @@ Zoom()
 
 reaper.ShowMessageBox(turn.." Starts!","", 0)
 
+
+function EndGame()
+end
+
+
 Main()
 
 
 --reaper.defer(Main())
-
-
-
-
-
 
 
 

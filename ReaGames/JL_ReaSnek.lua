@@ -1,5 +1,5 @@
 -- @description ReaSnek
--- @version 1.0.1
+-- @version 1.0.2
 -- @author Jeppe Emil Lindskov
 -- @about
 --   # ReaSnek
@@ -9,8 +9,9 @@
 -- GLOBAL Variables ------------------------------
 
 BoardSizeX = 1000
-BoardSizeY = 1000
-PlayerSpeed = 16
+BoardSizeY = 700
+PlayerSpeed_Start = 10
+PlayerSpeec_Accel = 0.1 -- how fast shall the speed accelerated after each fruit
 prevInputValue = 1
 prevInputDir = "X"
 currentDir = 0
@@ -71,26 +72,28 @@ end
 
 function CheckForInput()
   char = gfx.getchar()
+  if char~=0 then AAA=char end
   
   if Player.dead == true then
       if char == 32 then 
+          PlayerSpeed = PlayerSpeed_Start
           SpawnPlayer()
       end
   end
   
-  if char == 100 then
+  if char == 100 or char == 1919379572.0 then
    return 1, true, "X"
   end 
   
-  if char == 97 then 
+  if char == 97 or char == 1818584692 then 
    return -1, true, "X"
   end
   
- if char == 119 then
+ if char == 119 or char == 30064 then
   return -1, true, "Y"
  end 
  
-  if char == 115 then 
+  if char == 115 or char == 1685026670.0 then 
   return 1, true, "Y"
   end
   
@@ -278,6 +281,7 @@ function FruitCollected(fruit)
 fruit.dead = true
 Player.snakeBodySize = Player.snakeBodySize + 1
 score = score + 100
+PlayerSpeed=PlayerSpeed+PlayerSpeec_Accel 
 end
 
 
@@ -359,12 +363,12 @@ function DrawMenu()
   gfx.g = 1
   
   gfx.x = 315
-  gfx.y = 600
+  gfx.y = gfx.h-200
   gfx.drawstr("Press space to play")
   
   gfx.setfont(1,"Arial", 25)
   gfx.x = 700
-  gfx.y = 950
+  gfx.y = gfx.h - 100
   gfx.drawstr("WASD or Arrows to move")
 
 end
@@ -421,7 +425,10 @@ function MainLoop()
 end
 
 function Init()
-  screen = gfx.init("ReaSnek" ,BoardSizeX, BoardSizeY, 0,1000,500) 
+  Viewport={reaper.my_getViewport(0,0,0,0,0,0,0,0,false)}
+  Viewport[3]=(Viewport[3]-BoardSizeX)/2
+  Viewport[4]=(Viewport[4]-BoardSizeY)/2
+  screen = gfx.init("ReaSnek" ,BoardSizeX, BoardSizeY, 0,Viewport[3],Viewport[4]) 
     Player.dead = true; 
   GameStarted = true 
 end
